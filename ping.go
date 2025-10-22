@@ -565,6 +565,11 @@ func (p *Pinger) RunWithContext(ctx context.Context) error {
 		}
 		conn.SetIfIndex(iface.Index)
 	}
+
+	if p.Source != "" {
+		conn.SetSource(p.Source)
+	}
+
 	return p.run(ctx, conn)
 }
 
